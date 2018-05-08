@@ -1,0 +1,23 @@
+name = Spencer
+description = "A theme for the UCSC Library website based on a design by Jess Spencer."
+core = 7.x
+
+regions[alert] = Alert
+regions[header_main_menu] = Main Header Menu
+regions[header_secondary_menu] = Secondary Header Menu
+regions[content] = Content
+regions[above_content] = Above Content
+regions[below_content] = Below Content
+regions[sidebar] = Sidebar
+regions[footer] = Footer
+
+stylesheets[all][] = css/bootstrap.min.css
+stylesheets[all][] = css/sumoselect.css
+stylesheets[all][] = css/style.css
+
+scripts[] = js/bootstrap.min.js
+scripts[] = js/breakpoints.js
+scripts[] = js/jquery.sumoselect.min.js
+scripts[] = js/spencer.js
+
+
