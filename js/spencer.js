@@ -5,6 +5,9 @@ jQuery( document ).ready(function() {
 	//replace sidebar with link for mobile
 	/*jQuery( '<h2 class="hours-link"><a href="http://guides.library.ucsc.edu/libraryhours">Today\'s Hours</a></h2>' ).insertBefore( 'body.front #block-multisearch-multisearch' );*/
 	
+	/* search form placeholder text */
+	jQuery('#edit-search-block-form--2').attr("placeholder", "Search this Site");
+	
 	/*add link to password reset page on /user */
 	jQuery( '<p><a href="https://libaccess.library.ucsc.edu/">Reset your password</a></p><p>This password reset will apply to Drupal, Omeka, and Artifacts</p>' ).insertAfter( "body.page-user form#user-login input.form-submit" );
 	
