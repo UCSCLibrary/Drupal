@@ -1289,6 +1289,12 @@ body.front .footer2 {
 
 @media only screen and (min-width : 860px) {
 
+	.primary-map-fields {
+		width: 49%;
+		padding-right: 32px;
+		float: left;
+	}
+
 .region-content .services-banner li {
     text-indent: 0px;
 	padding-left: 0px;

@@ -1,16 +1,15 @@
 /* Spencer.js scripts */
 
 jQuery( document ).ready(function() {
-	
 	//replace sidebar with link for mobile
 	/*jQuery( '<h2 class="hours-link"><a href="http://guides.library.ucsc.edu/libraryhours">Today\'s Hours</a></h2>' ).insertBefore( 'body.front #block-multisearch-multisearch' );*/
-	
+
 	/* search form placeholder text */
 	jQuery('#edit-search-block-form--2').attr("placeholder", "Search this Site");
-	
+
 	/*add link to password reset page on /user */
 	jQuery( '<p><a href="https://libaccess.library.ucsc.edu/">Reset your password</a></p><p>This password reset will apply to Drupal, Omeka, and Artifacts</p>' ).insertAfter( "body.page-user form#user-login input.form-submit" );
-	
+
 	jQuery ( 'body.front #sidebar' ).addClass('hidden');
 	jQuery ( 'body.front .navbar' ).addClass('hidden');
 	var viewportWidth = jQuery(window).width();
@@ -20,13 +19,13 @@ jQuery( document ).ready(function() {
 		jQuery ( 'body.front h2.hours-link' ).addClass('hidden');
 		jQuery('.view-news').addClass('view-news-767plus');
 	}
-	
-	
+
+
 	//add classes to body
 	jQuery('body').addClass('mobile');
-	
+
 	// modify the html of the secondary menu
-	
+
 	var menuButton = '<div class="menubutton">Menu</div>';
 	jQuery( menuButton  ).insertBefore( '.header-secondary-menu ul.menu' );
 	jQuery('.menubutton').click(function (e) {
@@ -48,13 +47,13 @@ jQuery( document ).ready(function() {
 	});
 
 	if (viewportWidth > 860) {
-		
+
 		jQuery('.view-news').addClass('view-news-860plus');
-		
+
 		//remove mobile class to body
 		jQuery('body').removeClass('mobile');
 		jQuery('body').addClass('notmobile');
-		
+
 		//modify secondary menu
 		jQuery('.header-secondary-menu ul.menu a.mainlink').removeClass('menu-toggle');
 		jQuery('div.mega-hook').addClass('mega-menu');
@@ -62,25 +61,37 @@ jQuery( document ).ready(function() {
 		jQuery('.header-secondary-menu a.services').html('<span>Services</span><img src="https://library.ucsc.edu/sites/default/files/external/images/header-menu-arrow.png" alt="navigation arrow"><br>Borrowing &amp; Spaces');
 		jQuery('.header-secondary-menu a.collections').html('<span>Collections</span><img src="https://library.ucsc.edu/sites/default/files/external/images/header-menu-arrow.png" alt="navigation arrow"><br>&amp; Scholarly Communication');
 		jQuery('.header-secondary-menu a.about').html('<span>About</span><img src="https://library.ucsc.edu/sites/default/files/external/images/header-menu-arrow.png" alt="navigation arrow"><br>Visit &amp; Contact');
-		
+
 	}
-	
+
 	//modify the html of the site search text field
 	//jQuery('.header-main-menu .form-type-textfield').html('<input type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" /><img class="search" src="https://library.ucsc.edu/sites/default/files/external/images/header-search.png">');
-	
+
 	// toggle the visibility of the site search text field when the spyglass graphic is clicked
 	//jQuery ('.header-main-sitesearch form .form-text').addClass('form-hide');
 	//jQuery('.header-main-sitesearch form .search').click(function (e) {
 		//e.preventDefault();
     	//jQuery('.header-main-sitesearch form .form-text').toggle('fast');
 	//});
-	
+
 	// collapse the sidebar on mobile
 	  jQuery('[data-toggle=offcanvas]').click(function() {
     	jQuery('.row-offcanvas').toggleClass('active');
 	  });
-	
-});
+
+		// Aerial Photos script
+			jQuery( ".node-type-digitized-aerial-photos-index .field-name-field-aerial-index-map img" ).each(function() {
+				if (jQuery(this).attr("title")) {
+					var aerialTitle = jQuery(this).attr("title");
+					var photoLabel = "<p>" + aerialTitle + "</p>";
+					//jQuery(photoLabel).insertAfter(this);
+					jQuery(photoLabel).insertAfter( $(this).closest(".field-name-field-aerial-index-map a") );
+				}
+			});
+			jQuery('.field-name-field-aerial-index-map, .field-name-field-flight-scale, .field-name-field-aerial-decade, .field-name-field-aerial-county, .field-name-field-place field-type-list-text, .field-name-field-place').wrapAll( "<div class='primary-map-fields' />");
+			jQuery('.field-name-field-flight-information-sheet-p, .field-name-field-cdmflightindex, .field-name-field-flightcdmlink, .field-name-field-cdm-search').wrapAll( "<div class='secondary-map-fields' />");
+
+		});
 
 
 $(window).setBreakpoints({
@@ -95,33 +106,33 @@ $(window).setBreakpoints({
 
 jQuery(window).bind('enterBreakpoint767',function() {
 	jQuery('.view-news').addClass('view-news-767plus');
-	
+
 	jQuery( 'body.front #sidebar' ).removeClass('hidden');
 	jQuery( 'body.front .navbar' ).removeClass('hidden');
 	jQuery ( 'body.front h2.hours-link' ).addClass('hidden');
-	
+
 });
 
 jQuery(window).bind('exitBreakpoint767',function() {
 	//jQuery('.view-news').removeClass('view-news-767plus');
 	jQuery ( 'body.front h2.hours-link' ).removeClass('hidden');
-	
+
 });
 
 
 //changes to secondary menu
 jQuery(window).bind('enterBreakpoint860',function() {
-	
+
 	jQuery('.view-news').addClass('view-news-860plus');
-	
+
 	jQuery( 'body.front #sidebar' ).removeClass('hidden');
 	jQuery( 'body.front .navbar' ).removeClass('hidden');
 	jQuery ( 'body.front h2.hours-link' ).addClass('hidden');
-	
+
 	//remove mobile class from body
 		jQuery('body').removeClass('mobile');
 	jQuery('body').addClass('notmobile');
-	
+
 	//changes to secondary menu
 	jQuery('.header-secondary-menu ul.menu a.mainlink').removeClass('menu-toggle');
 	jQuery('div.mega-hook').addClass('mega-menu');
@@ -130,7 +141,7 @@ jQuery(window).bind('enterBreakpoint860',function() {
 		jQuery('.header-secondary-menu a.services').html('<span>Services</span><img src="https://library.ucsc.edu/sites/default/files/external/images/header-menu-arrow.png" alt="navigation arrow"><br>Borrowing &amp; Spaces');
 		jQuery('.header-secondary-menu a.collections').html('<span>Collections</span><img src="https://library.ucsc.edu/sites/default/files/external/images/header-menu-arrow.png" alt="navigation arrow"><br>&amp; Scholarly Communication');
 		jQuery('.header-secondary-menu a.about').html('<span>About</span><img src="https://library.ucsc.edu/sites/default/files/external/images/header-menu-arrow.png" alt="navigation arrow"><br>Visit &amp; Contact');
-	
+
 });
 
 jQuery(window).bind('enterBreakpoint1000',function() {
@@ -140,7 +151,7 @@ jQuery(window).bind('enterBreakpoint1000',function() {
 		//remove mobile class from body
 		jQuery('body').removeClass('mobile');
 	jQuery('body').addClass('notmobile');
-	
+
 	//changes to secondary menu
 	jQuery('.header-secondary-menu ul.menu a.mainlink').removeClass('menu-toggle');
 	jQuery('div.mega-hook').addClass('mega-menu-mid');
@@ -156,17 +167,17 @@ jQuery(window).bind('enterBreakpoint1000',function() {
 jQuery(window).bind('exitBreakpoint1000',function() {
 	jQuery('.view-news').addClass('view-news-860plus');
 	jQuery('div.mega-hook').removeClass('mega-menu-mid');
-	
+
 });
-	
+
 jQuery(window).bind('exitBreakpoint860',function() {
 	jQuery('.view-news').removeClass('view-news-860plus');
 	jQuery('div.mega-hook').removeClass('mega-menu-mid');
-	
+
 	//add mobile class to body
 	jQuery('body').addClass('mobile');
 	jQuery('body').removeClass('notmobile');
-	
+
 	//mega menu scripts
 	jQuery('.mega-research').hide();
 	jQuery('.mega-services').hide();
@@ -181,7 +192,7 @@ jQuery(window).bind('exitBreakpoint860',function() {
 	jQuery('.header-secondary-menu a.services').html('Services');
 	jQuery('.header-secondary-menu a.collections').html('Collections');
 	jQuery('.header-secondary-menu a.about').html('About');
-	
+
 });
 
 jQuery(window).bind('enterBreakpoint1350',function() {
@@ -194,8 +205,8 @@ jQuery(window).bind('exitBreakpoint1350',function() {
 });
 
 jQuery( document ).ready(function() {
-	
-	
+
+
 					//mega-menu scripts
 	jQuery( "li.research" ).mouseover(function() {
 		if ($('body').hasClass('notmobile')) {
@@ -217,7 +228,7 @@ jQuery( document ).ready(function() {
 			jQuery('.mega-about').show();
 		}
 	});
-	
+
 });
 
 $(window).bind("load", function () {
