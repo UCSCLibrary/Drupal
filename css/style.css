@@ -85,16 +85,23 @@ div.box h2 {
 /* Alert Region */
 
 .region-alert {
-	padding: 12px;
-	background-color: #ff0000;
+	background-color: #ffffff;
 	max-width: 1350px;
 	margin: 0 auto;
-	color: #fff;
 }
 
-.region-alert a, .region-alert a:link, .region-alert a:visited, .region-alert a:hover, .region-alert a:active {
-	color: #fff;
-	text-decoration: underline;
+/* Overwrite Site Alert module defaults */
+div.site-alert div.low {
+	background-color: #ffcc33;
+}
+
+div.site-alert div.low,
+div.site-alert div.info,
+div.site-alert div.high {
+	background-image: none;
+	margin-bottom: 0;
+	color: #000000;
+	text-align: center;
 }
 
 /* Header Styles */

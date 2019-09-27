@@ -1,0 +1,12 @@
+diff --git a/site_alert.module b/site_alert.module
+index 7eb98e1..5acc329 100644
+--- a/site_alert.module
++++ b/site_alert.module
+@@ -207,6 +207,7 @@ function site_alert_block_info() {
+   $blocks['site_alert'] = array(
+     // The name that will appear in the block list.
+     'info' => t('Site Alert Block'),
++    'cache' => DRUPAL_NO_CACHE,
+   );
+   return $blocks;
+ }
